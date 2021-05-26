@@ -1,0 +1,32 @@
+name: redis
+type: store
+title: Redis
+hostname: redis
+containers:
+- name: redis
+  image: wodby/redis
+  ports:
+  - name: redis
+    number: 6379
+    type: tcp
+  env:
+  - name: REDIS_PASSWORD
+    value: '{{password}}'
+    secret: true    
+options:
+- version: 6
+- version: 5
+scalable: false
+labels:
+- redis
+
+volumes:
+- name: data
+  title: Data
+  path: /data
+  size: 5
+
+tokens:
+- name: password
+  generate:
+    regex: '[0-9a-z-]{32}'

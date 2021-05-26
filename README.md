@@ -1,1 +1,1 @@
-# service-redis
+# Wodby service for Redis
