@@ -25,6 +25,7 @@ volumes:
   title: Data
   path: /data
   size: 10
+  optional: true
 
 tokens:
 - name: password
