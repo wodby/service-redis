@@ -15,7 +15,7 @@ containers:
     value: '{{password}}'
     secret: true    
 options:
-- version: 7
+- version: '7'
 scalable: false
 labels:
 - redis
