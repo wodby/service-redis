@@ -1,6 +1,6 @@
 name: redis
 icon: redis
-type: memorystore
+type: datastore
 title: Redis
 hostname: redis
 containers:
