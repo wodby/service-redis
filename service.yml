@@ -15,8 +15,7 @@ containers:
     value: '{{password}}'
     secret: true    
 options:
-- version: 6
-- version: 5
+- version: 7
 scalable: false
 labels:
 - redis
@@ -25,7 +24,7 @@ volumes:
 - name: data
   title: Data
   path: /data
-  size: 5
+  size: 10
 
 tokens:
 - name: password
