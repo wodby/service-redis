@@ -24,7 +24,6 @@ volumes:
 - name: data
   title: Data
   path: /data
-  size: 10
   optional: true
 
 tokens:
