@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    name: redis
-  name: redis
+    name: '{{.Name}}'
+  name: '{{.Name}}'
 spec:
-  serviceName: redis
+  serviceName: '{{.Name}}'
   selector:
     matchLabels:
-      name: redis
+      name: '{{.Name}}'
   template:
     metadata:
       labels:
-        name: redis
+        name: '{{.Name}}'
     spec:
       containers:
       - image: wodby/redis
