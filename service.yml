@@ -5,6 +5,7 @@ title: Redis
 hostname: redis
 containers:
 - name: redis
+  image: bitnami/redis
   ports:
   - name: redis
     number: 6379
