@@ -5,15 +5,10 @@ title: Redis
 hostname: redis
 containers:
 - name: redis
-  image: wodby/redis
   ports:
   - name: redis
     number: 6379
     type: tcp
-  env:
-  - name: REDIS_PASSWORD
-    value: '{{password}}'
-    secret: true    
 options:
 - version: '7'
 scalable: false
@@ -48,3 +43,6 @@ helm:
     annotations: commonAnnotations
     env: master.extraEnvVars
     resources: master.resources
+  values:
+  - name: auth.password
+    value: '{{password}}'
