@@ -50,3 +50,5 @@ helm:
   values:
   - name: auth.password
     value: '{{password}}'
+  - name: master.resourcesPreset
+    value: 'none'
