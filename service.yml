@@ -52,3 +52,7 @@ helm:
     value: '{{password}}'
   - name: master.resourcesPreset
     value: 'none'
+  - name: architecture
+    value: 'standalone
+  - name: master.persistence.enabled    
+    value: false
