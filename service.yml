@@ -53,6 +53,7 @@ helm:
   - name: master.resourcesPreset
     value: 'none'
   - name: architecture
-    value: 'standalone
+    value: 'standalone'
   - name: master.persistence.enabled    
     value: false
+
