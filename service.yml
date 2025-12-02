@@ -1,21 +1,24 @@
 name: redis
 icon: redis
 type: datastore
-title: Redis
-hostname: redis
+title: redis
+hostname: redis-master
 containers:
 - name: redis
-  image: bitnami/redis
+  image: wodby/redis
+options:
+- version: '8.4'
+  tag: '8.4'
+- version: '8.2'
+  tag: '8.2'
+- version: '8.0'
+  tag: '8.0'
+endpoints:
+- name: redis
   ports:
   - name: redis
     number: 6379
     type: tcp
-  env:
-  - name: DISABLE_WELCOME_MESSAGE
-    value: 'true'    
-options:
-- version: '7'
-  tag: 7.2.4-debian-12-r12
 labels:
 - redis
 
@@ -24,12 +27,15 @@ volumes:
   title: Data
   optional: true
   helm: 
-    labels: master.persistence.labels  
     values:
     - name: master.persistence.enabled
       value: true
     - name: master.persistence.size
       value: '{{volumes.data.size}}Gi'
+    # mandatory to use existing claim since this volume will have import function
+    # we will mount different claim after import and doing it through sts's volumeclaimtemplates is not supported
+    - name: primary.persistence.existingClaim
+      value: '{{volumes.data.claim}}'
 
 tokens:
 - name: password
@@ -37,23 +43,18 @@ tokens:
     regex: '[0-9a-z-]{32}'
 
 helm:
-  name: bitnami
-  source: oci://registry-1.docker.io/bitnamicharts/redis
-  chart: oci://registry-1.docker.io/bitnamicharts/redis
-  version: 19.1.3
+  name: wodby
+  source: oci://registry-1.docker.io/wodby/redis
+  chart: oci://registry-1.docker.io/wodby/redis
+  version: 0.1.0
   configurations:
-  - name: redis
-    labels: commonLabels
-    annotations: commonAnnotations
-    env: master.extraEnvVars
-    resources: master.resources
+  - name: opensmtpd
+    labels: podLabels
+    annotations: podAnnotations
+    env: envVars
+    resources: resources
+    volumes: volumes
+    mounts: volumeMounts
   values:
-  - name: auth.password
+  - name: password
     value: '{{password}}'
-  - name: master.resourcesPreset
-    value: 'none'
-  - name: architecture
-    value: 'standalone'
-  - name: master.persistence.enabled    
-    value: false
-
