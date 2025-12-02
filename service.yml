@@ -1,7 +1,7 @@
 name: redis
 icon: redis
 type: datastore
-title: redis
+title: Redis
 hostname: redis-master
 containers:
 - name: redis
