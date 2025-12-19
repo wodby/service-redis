@@ -7,8 +7,6 @@ containers:
 - name: redis
   image: wodby/redis
 options:
-- version: '8.4'
-  tag: '8.4'
 - version: '8.2'
   tag: '8.2'
 - version: '8.0'
