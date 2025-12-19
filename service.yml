@@ -26,13 +26,13 @@ volumes:
   optional: true
   helm: 
     values:
-    - name: master.persistence.enabled
+    - name: persistence.enabled
       value: true
-    - name: master.persistence.size
+    - name: persistence.size
       value: '{{volumes.data.size}}Gi'
     # mandatory to use existing claim since this volume will have import function
     # we will mount different claim after import and doing it through sts's volumeclaimtemplates is not supported
-    - name: primary.persistence.existingClaim
+    - name: persistence.existingClaim
       value: '{{volumes.data.claim}}'
 
 tokens:
@@ -46,13 +46,11 @@ helm:
   chart: oci://registry-1.docker.io/wodby/redis
   version: 0.1.0
   configurations:
-  - name: opensmtpd
+  - name: redis
     labels: podLabels
     annotations: podAnnotations
     env: envVars
     resources: resources
-    volumes: volumes
-    mounts: volumeMounts
   values:
-  - name: password
+  - name: auth.password
     value: '{{password}}'
