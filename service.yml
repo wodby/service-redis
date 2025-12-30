@@ -16,7 +16,7 @@ endpoints:
   ports:
   - name: redis
     number: 6379
-    type: tcp
+    protocol: tcp
 labels:
 - redis
 
