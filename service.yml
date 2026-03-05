@@ -7,10 +7,15 @@ containers:
 - name: redis
   image: wodby/redis
 options:
+- version: '8.6'
+  tag: '8.6'
+- version: '8.4'
+  tag: '8.4'
 - version: '8.2'
   tag: '8.2'
 - version: '8.0'
   tag: '8.0'
+  eol: '2026-02-11T00:00:00+00:00'  
 endpoints:
 - name: redis
   ports:
