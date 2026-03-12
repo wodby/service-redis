@@ -55,7 +55,7 @@ helm:
   chart: oci://registry-1.docker.io/wodby/redis
   version: 0.1.0
   configurations:
-  - name: redis
+  - container: redis
     labels: podLabels
     annotations: podAnnotations
     env: envVars
