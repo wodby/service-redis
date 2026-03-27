@@ -60,6 +60,8 @@ helm:
     annotations: podAnnotations
     env: envVars
     resources: resources
+    volumes: extraVolumes
+    mounts: extraVolumeMounts
   values:
   - name: auth.password
     value: '{{password}}'
