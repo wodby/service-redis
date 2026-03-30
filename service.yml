@@ -2,7 +2,6 @@ name: redis
 icon: redis
 type: datastore
 title: Redis
-hostname: redis
 containers:
 - name: redis
   image: wodby/redis
