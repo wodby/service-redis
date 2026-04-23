@@ -55,7 +55,10 @@ helm:
     value: '{{password}}'
 
 workloads:
-- id: main
+- name: main
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: '{{service.helm.release}}'
   kind: statefulset
   primary: true
   helm:
