@@ -2,9 +2,6 @@ name: redis
 icon: redis
 type: datastore
 title: Redis
-containers:
-- name: redis
-  image: wodby/redis
 options:
 - version: '8.6'
   tag: '8.6'
@@ -14,7 +11,7 @@ options:
   tag: '8.2'
 - version: '8.0'
   tag: '8.0'
-  eol: '2026-02-11T00:00:00+00:00'  
+  eol: '2026-02-11T00:00:00+00:00'
 endpoints:
 - name: redis
   ports:
@@ -28,9 +25,9 @@ volumes:
 - name: data
   title: Data
   optional: true
-  helm: 
+  helm:
 # @todo: remove labels if imports introduced  
-    labels: persistence.labels  
+    labels: persistence.labels
     values:
     - name: persistence.enabled
       value: true
@@ -53,14 +50,21 @@ helm:
   source: oci://registry-1.docker.io/wodby/redis
   chart: oci://registry-1.docker.io/wodby/redis
   version: 0.1.0
-  configurations:
-  - container: redis
-    labels: podLabels
-    annotations: podAnnotations
-    env: envVars
-    resources: resources
-    volumes: extraVolumes
-    mounts: extraVolumeMounts
   values:
   - name: auth.password
     value: '{{password}}'
+workloads:
+- id: main
+  kind: statefulset
+  primary: true
+  containers:
+  - name: redis
+    image: wodby/redis
+    helm:
+      resources: resources
+      env: envVars
+      mounts: extraVolumeMounts
+  helm:
+    labels: podLabels
+    annotations: podAnnotations
+    volumes: extraVolumes
