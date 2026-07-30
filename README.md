@@ -24,7 +24,7 @@ configuration for Redis.
 | Containers | `redis` using `wodby/redis` |
 | Endpoints | `redis`: TCP 6379 |
 | Volumes | Data |
-| Helm | chart `oci://registry-1.docker.io/wodby/redis`; version `0.1.0` |
+| Helm | chart `oci://registry-1.docker.io/wodby/redis`; version `0.1.2` |
 | Configuration | 1 generated or fixed tokens |
 
 ## Use this service
