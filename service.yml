@@ -48,11 +48,16 @@ tokens:
   generate:
     regex: '[0-9a-z-]{32}'
 
+deployment:
+  strategy: rolling
+  minReady: 10s
+  shutdownGracePeriod: 30s
+
 helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/redis
   chart: oci://registry-1.docker.io/wodby/redis
-  version: 0.1.3
+  version: 0.2.0
   values:
   - name: auth.password
     value: '{{password}}'
