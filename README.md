@@ -19,12 +19,12 @@ configuration for Redis.
 | --- | --- |
 | Service name | `redis` |
 | Type | Datastore |
-| Versions | `8.6` by default; also available: `8.4`, `8.2`, `8.0` |
+| Versions | `8.6` by default; also available: `8.4`, `8.2` |
 | Workloads | `main` (StatefulSet), primary |
 | Containers | `redis` using `wodby/redis` |
 | Endpoints | `redis`: TCP 6379 |
 | Volumes | Data |
-| Helm | chart `oci://registry-1.docker.io/wodby/redis`; version `0.1.3` |
+| Helm | chart `oci://registry-1.docker.io/wodby/redis`; version `0.2.1` |
 | Configuration | 1 generated or fixed tokens |
 
 ## Use this service
