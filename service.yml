@@ -4,11 +4,11 @@ type: datastore
 title: Redis
 options:
 - version: '8.6'
-  tag: 8.6-r0
+  tag: 8.6-r1
 - version: '8.4'
-  tag: 8.4-r0
+  tag: 8.4-r1
 - version: '8.2'
-  tag: 8.2-r0
+  tag: 8.2-r1
   eol: '2030-09-01T00:00:00+00:00'
 endpoints:
 - name: redis
