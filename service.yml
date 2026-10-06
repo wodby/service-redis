@@ -2,6 +2,7 @@ name: redis
 icon: redis
 type: datastore
 title: Redis
+guidance: GUIDANCE.md
 options:
 - version: '8.6'
   tag: 8.6-r1
