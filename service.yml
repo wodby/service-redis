@@ -5,11 +5,11 @@ title: Redis
 guidance: GUIDANCE.md
 options:
 - version: '8.6'
-  tag: 8.6-r2
+  tag: 8.6-r3
 - version: '8.4'
-  tag: 8.4-r2
+  tag: 8.4-r3
 - version: '8.2'
-  tag: 8.2-r2
+  tag: 8.2-r3
   eol: '2030-09-01T00:00:00+00:00'
 endpoints:
 - name: redis
