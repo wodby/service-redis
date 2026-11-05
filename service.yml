@@ -74,6 +74,8 @@ workloads:
   containers:
   - name: redis
     image: wodby/redis
+    resources:
+      preset: nano
     helm:
       resources: resources
       env: envVars
