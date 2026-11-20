@@ -6,10 +6,13 @@ guidance: GUIDANCE.md
 options:
 - version: '8.6'
   tag: 8.6-r5
+  digest: sha256:f91953e5ad9457211548cfa92fa6a2ea1952bd65a240e0fea326f7aa70ab0c27
 - version: '8.4'
   tag: 8.4-r5
+  digest: sha256:ec8ca2c269891dc0f0f610ff6d581f44ce173cc36363d273eef31867703bcf8b
 - version: '8.2'
   tag: 8.2-r5
+  digest: sha256:8e2d7bef516c1f2a6ad08380e75b6148f19d07e1476c02c5cbc124847475a8f5
   eol: '2030-09-01T00:00:00+00:00'
 endpoints:
 - name: redis
